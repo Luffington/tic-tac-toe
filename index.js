@@ -80,49 +80,22 @@ function iterativeMove(arr) {
     }
 }
 
-// there is a bug in the main function... at the moment this will try to simulate a game but the i, j, counter logic is busted
-// you will probably have to reimplement the simulation logic
-function buggyMain(num) {
-  var stateOfTheGame = createGame(num);
-  var counter = 1;
-  while (returnTrueIfEmptySpotsInGame(stateOfTheGame) != false) {
-    var mark = iterativeMove(stateOfTheGame);
-    var i = mark[0];
-    var j = mark[1];
-    stateOfTheGame[i][j] = counter;
-
-    renderBoard(num, stateOfTheGame);
-  }
+function main(num) {
+    var stateOfTheGame = createGame(num);
+    var toggle = 1;
+    // hw: optimize to remove redundant work
+    while (returnTrueIfEmptySpotsInGame(stateOfTheGame) != false) {
+        var coordinates = iterativeMove(stateOfTheGame)
+        var i = coordinates[0]
+        var j = coordinates[1]
+        stateOfTheGame[i][j] = toggle
+        if (toggle == 1) {
+            toggle = 2
+        } else {
+            toggle = 1
+        }
+        renderBoard(num, stateOfTheGame)
+    }
 }
-// buggyMain(3);
 
-var stateOfTheGame = createGame(3);
-
-iterativeMove(stateOfTheGame)
-stateOfTheGame[0][0] = 1
-
-iterativeMove(stateOfTheGame)
-stateOfTheGame[0][1] = 2
-
-iterativeMove(stateOfTheGame)
-stateOfTheGame[0][2] = 1
-
-iterativeMove(stateOfTheGame)
-stateOfTheGame[1][0] = 2
-
-iterativeMove(stateOfTheGame)
-stateOfTheGame[1][1] = 1
-
-iterativeMove(stateOfTheGame)
-stateOfTheGame[1][2] = 2
-
-iterativeMove(stateOfTheGame)
-stateOfTheGame[2][0] = 1
-
-iterativeMove(stateOfTheGame)
-stateOfTheGame[2][1] = 2
-
-iterativeMove(stateOfTheGame)
-stateOfTheGame[2][2] = 1
-
-console.log(stateOfTheGame)
+main(3)
