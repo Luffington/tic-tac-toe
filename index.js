@@ -69,22 +69,60 @@ function randomMove(arr) {
   return [randomSelectOuter, randomSelectInner];
 }
 
+// get the next set of coordinates you want to change
+function iterativeMove(arr) {
+    for (var i = 0; i < arr.length; i++) {
+        for (var j = 0; j < arr[i].length; j++) {
+            if (arr[i][j] == empty) {
+                return [i, j]
+            }
+        }
+    }
+}
+
 // there is a bug in the main function... at the moment this will try to simulate a game but the i, j, counter logic is busted
 // you will probably have to reimplement the simulation logic
 function buggyMain(num) {
   var stateOfTheGame = createGame(num);
   var counter = 1;
   while (returnTrueIfEmptySpotsInGame(stateOfTheGame) != false) {
-    var mark = randomMove(stateOfTheGame);
+    var mark = iterativeMove(stateOfTheGame);
     var i = mark[0];
     var j = mark[1];
     stateOfTheGame[i][j] = counter;
-    if (counter == 1) {
-      counter = 2;
-    } else if (counter == 2) {
-      counter = 1;
-    }
+
     renderBoard(num, stateOfTheGame);
   }
 }
-buggyMain(3);
+// buggyMain(3);
+
+var stateOfTheGame = createGame(3);
+
+iterativeMove(stateOfTheGame)
+stateOfTheGame[0][0] = 1
+
+iterativeMove(stateOfTheGame)
+stateOfTheGame[0][1] = 2
+
+iterativeMove(stateOfTheGame)
+stateOfTheGame[0][2] = 1
+
+iterativeMove(stateOfTheGame)
+stateOfTheGame[1][0] = 2
+
+iterativeMove(stateOfTheGame)
+stateOfTheGame[1][1] = 1
+
+iterativeMove(stateOfTheGame)
+stateOfTheGame[1][2] = 2
+
+iterativeMove(stateOfTheGame)
+stateOfTheGame[2][0] = 1
+
+iterativeMove(stateOfTheGame)
+stateOfTheGame[2][1] = 2
+
+iterativeMove(stateOfTheGame)
+stateOfTheGame[2][2] = 1
+
+console.log(stateOfTheGame)
