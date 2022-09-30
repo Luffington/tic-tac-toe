@@ -72,10 +72,14 @@ function returnTrueIfEmptySpotsInGame(stateOfTheGame) {
 function takePlayerMove(toggle) {
   var prompt = require("prompt-sync")({ sigint: true });
   if (toggle == 1) {
-    var player1Move = prompt("Player 1 turn! Where would you like to move?");
+    var player1Move = prompt("Player 1 turn! Where would you like to move? - ");
+    while(isNaN(player1Move) == true){player1Move = prompt("Invalid input! Please enter a number between 1 and 8 - ")}
     return Number(player1Move);
-  } else {
+
+
+  }else {
     var player2Move = prompt("Player 2 turn! Where would you like to move?");
+    while(isNaN(player2Move) == true){player2Move = prompt("Invalid input! Please enter a number between 1 and 8 - ")}
     return Number(player2Move);
   }
 }
@@ -99,7 +103,7 @@ function getCoordinatesUsingMath(matrix, playerMove) {
 function integratedCoordinateFunction(matrix, toggle) {
   var playerMove = takePlayerMove(toggle);
   var coordinates = getCoordinatesUsingMath(matrix, playerMove);
-  console.log(coordinates);
+  // console.log(coordinates);
   return coordinates;
 }
 
@@ -116,7 +120,7 @@ function main(num) {
 
     var i = coordinates[0];
     var j = coordinates[1];
-    console.log(i, j);
+    // console.log(i, j);
     getCurrentStateGivenCoordinates(stateOfTheGame, i, j);
     stateOfTheGame[i][j] = toggle;
     if (toggle == 1) {
