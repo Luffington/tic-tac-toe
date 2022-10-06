@@ -1,0 +1,72 @@
+<html>
+    <body>
+
+    <div id="app"></div>
+
+
+    <!--React packages --> 
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<!---Babel Packages-->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/jsx">
+        
+        const app = document.getElementById("app");
+
+        function Header({ title }){
+            console.log(title)
+            return (<h1>{title}</h1>)
+        }
+
+        function HomePage(){
+            const sabores = ['Chocolate', 'Vainilla', 'Fresa', 'Reeses', 'Oreo', 'Rocky Road', 'Pistacho', 'MnM', 'Maracuyá', 'Almendra', 'Ceresa con Chispa', 'Almond Joy', 'Smores' ];
+            const horas = ['Lunes: de 9 a.m. a 10 p.m. ', 'Martes: Cerrado', 'Miércoles a Viernes: de 9 a.m. a 10 p.m', 'Sábado - Domingo: de 10 a.m. a 11 p.m.'];
+            const postres = ['Sandwich de Galleta', 'Pastel de Nieve', 'Banana Split', 'Brownie Surprise']
+            const contacts = ['6151070729', '(Email listed here)']
+            const otherThings = ['Malteadas', 'Bolis de Fruta', 'Root Beer Floats']
+            return (
+                <div>
+                <Header title="Cool Scoops de Mulegé" />
+                <Header title="Ordenar Ahora en Línea 🍦" />
+
+                <Header title="Sabores" />
+                <ul> {sabores.map((name) => (
+                    <li key={name}>{name}</li>
+                    ))}
+                </ul>
+
+                <Header title="Postres Especiales" />
+                <ul>{postres.map((name) => (
+                    <li key={name}>{name}</li>
+                    ))} 
+                </ul>
+                <Header title="Otra Especialidades" />
+                <ul>{otherThings.map((name) => (
+                    <li key={name}>{name}</li>
+                    ))}
+                </ul> 
+
+
+                
+
+                <Header title="Horas de Servicio" />
+                <ul> {horas.map((name) => (
+                    <li key={name}>{name}</li>
+                    ))}
+                </ul>
+
+                <Header title="Contactarnos" />
+                <ul>{contacts.map((name) => (
+                    <li key={name}>{name}</li>
+                    ))}
+
+                </ul>
+            </div>
+            )
+        }
+        ReactDOM.render(<HomePage />, app);
+
+        </script>
+
+    </body>
+</html>

@@ -109,7 +109,7 @@ function integratedCoordinateFunction(matrix, toggle) {
 
 
 // CHECK WIN CONDITION
-var stateOfTheGame = [[2, 0, 0], [0, 2, 0], [0, 2, 2]]
+var stateOfTheGame = [[1, 0, 0], [0, 2, 0], [0, 2, 1]]
 
 function checkWinCondition(stateOfTheGame){
   var i = 0
@@ -121,54 +121,56 @@ function checkWinCondition(stateOfTheGame){
     //inside.includes(1, 0) 
   // }
         
-        if (inside1[0] == 1 && inside1[1] == 1 && inside1[2] == 1){
-          console.log("X wins horizontally! (Row 1)")}
+if (inside1[0] == 1 && inside1[1] == 1 && inside1[2] == 1){
+  console.log("X wins horizontally! (Row 1)")}
+  else{
+    if (inside2[0] == 1 && inside2[1] == 1 && inside2[2] == 1){
+      console.log("X wins horizontally! (Row 2)")}
+      else{
+        if (inside3[0] == 1 && inside3[1] == 1 && inside3[2] == 1){
+          console.log("X wins horizontally! (Row 3)")}
           else{
-            if (inside2[0] == 1 && inside2[1] == 1 && inside2[2] == 1){
-              console.log("X wins horizontally! (Row 2)")}
+            if (inside1[0] == 1 && inside2[0] == 1 && inside3[0] == 1 ){
+              console.log("X wins vertically! (Column 1)")}
               else{
-                if (inside3[0] == 1 && inside3[1] == 1 && inside3[2] == 1){
-                  console.log("X wins horizontally! (Row 3)")}
+                if (inside1[1] == 1 && inside2[1] == 1 && inside3[1] == 1){
+                  console.log("X wins vertically! (Column 2)")}
                   else{
-                    if (inside1[0] == 1 && inside2[0] == 1 && inside3[0] == 1 ){
-                      console.log("X wins vertically! (Column 1)")}
+                    if (inside1[2] == 1 && inside2[2] == 1 && inside3[2] == 1){
+                      console.log("X wins vertically! (Column 3)")}
                       else{
-                        if (inside1[1] == 1 && inside2[1] == 1 && inside3[1] == 1){
-                          console.log("X wins vertically! (Column 2)")}
-                          else{
-                            if (inside1[2] == 1 && inside2[2] == 1 && inside3[2] == 1){
-                              console.log("X wins vertically! (Column 3)")}
-                              else{
-                                if (inside1[0] == 1 && inside2[1] == 1 && inside3[2] == 1){
-                                  console.log("X wins diagonally! (Left to right)")}
-                                else{
-                                  if (inside1[2] == 1 && inside2[1] == 1 && inside3[0] == 1){
-                                    console.log("X wins diagonally! (Right to left)")}
-                                    //TRANSITION FROM X'S TO O'S
-                                    else{
-                                    if (inside1[0] == 2 && inside1[1] == 2 && inside1[2] == 2){
-                                      console.log("O wins horizontally! (Row 1)")}
-                                      else{
-                                        if (inside2[0] == 2 && inside2[1] == 2 && inside2[2] == 2){
-                                          console.log("O wins horizontally! (Row 2)")}
-                                          else{
-                                            if (inside3[0] == 2 && inside3[1] == 2 && inside3[2] == 2){
-                                              console.log("O wins horizontally! (Row 3)")}
-                                              else{
-                                                if (inside1[0] == 2 && inside2[0] == 2 && inside3[0] == 2){
-                                                  console.log("O wins vertically! (Column 1)")}
-                                                  else{
-                                                    if (inside1[1] == 2 && inside2[1] == 2 && inside3[1] == 2){
-                                                      console.log("O wins vertically! (Column 2)")}
-                                                      else{
-                                                        if (inside1[2] == 2 && inside2[2] == 2 && inside3[2] == 2){
-                                                          console.log("O wins vertically! (Column 3)")}
-                                                          else{
-                                                            if (inside1[0] == 2 && inside2[1] == 2 && inside3[2] == 2){
-                                                              console.log("O wins diagonally! (Left to right)")}
-                                                            else{
-                                                              if (inside1[2] == 2 && inside2[1] == 2 && inside3[0] == 2){
-                                                                console.log("O wins diagonally! (Right to left)")}
+                        if (inside1[0] == 1 && inside2[1] == 1 && inside3[2] == 1){
+                          console.log("X wins diagonally! (Left to right)")}
+                        else{
+                          if (inside1[2] == 1 && inside2[1] == 1 && inside3[0] == 1){
+                            console.log("X wins diagonally! (Right to left)")}
+////////////////////////////////////////////////////////////////////////////////
+//TRANSITION FROM X'S TO O'S////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+else{
+if (inside1[0] == 2 && inside1[1] == 2 && inside1[2] == 2){
+  console.log("O wins horizontally! (Row 1)")}
+  else{
+    if (inside2[0] == 2 && inside2[1] == 2 && inside2[2] == 2){
+      console.log("O wins horizontally! (Row 2)")}
+      else{
+        if (inside3[0] == 2 && inside3[1] == 2 && inside3[2] == 2){
+          console.log("O wins horizontally! (Row 3)")}
+          else{
+            if (inside1[0] == 2 && inside2[0] == 2 && inside3[0] == 2){
+              console.log("O wins vertically! (Column 1)")}
+              else{
+                if (inside1[1] == 2 && inside2[1] == 2 && inside3[1] == 2){
+                  console.log("O wins vertically! (Column 2)")}
+                  else{
+                    if (inside1[2] == 2 && inside2[2] == 2 && inside3[2] == 2){
+                      console.log("O wins vertically! (Column 3)")}
+                      else{
+                        if (inside1[0] == 2 && inside2[1] == 2 && inside3[2] == 2){
+                          console.log("O wins diagonally! (Left to right)")}
+                        else{
+                          if (inside1[2] == 2 && inside2[1] == 2 && inside3[0] == 2){
+                            console.log("O wins diagonally! (Right to left)")}
                                                             
                                 
   else{console.log("No win condition! Continue playing!")}
